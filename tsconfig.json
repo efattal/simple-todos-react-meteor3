@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+      "jsx": "react",
+      "baseUrl": "src",
+      "preserveSymlinks": true,
+      "paths": {
+        "meteor/*": [
+          "./.meteor/local/types/packages.d.ts"
+        ]
+      }
+    }
+  }
