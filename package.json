@@ -16,7 +16,7 @@
     "flowbite": "2.4.1",
     "flowbite-react": "0.10.1",
     "meteor-node-stubs": "1.2.9",
-    "meteor-vite": "1.10.4",
+    "meteor-vite": "1.10.3",
     "react": "19.0.0-rc-100dfd7dab-20240701",
     "react-dom": "19.0.0-rc-100dfd7dab-20240701"
   },
