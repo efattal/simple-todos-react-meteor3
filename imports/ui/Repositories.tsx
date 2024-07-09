@@ -27,7 +27,7 @@ const Repositories = () => {
                             <div className="text-xs mt-1 font-thin">{repo.description}</div>
                         </div>
                     </ListGroup.Item>
-                )}
+                ))}
             </ListGroup>
         ) : (
             <Spinner />

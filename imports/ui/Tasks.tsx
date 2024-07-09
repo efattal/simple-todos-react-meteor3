@@ -4,7 +4,7 @@ import { TaskForm } from "./TaskForm"
 import { Button, Spinner } from "flowbite-react"
 import { TasksCollection } from "../db/TasksCollection";
 import { Task } from "./Task";
-import { TaskType } from "/types/TaskType";
+import { TaskType } from "../../types/TaskType";
 
 const toggleChecked = ({ _id, isChecked }: TaskType) => {
     Meteor.call('tasks.setIsChecked', _id, !isChecked);
