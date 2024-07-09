@@ -1,5 +1,6 @@
 import React, { useState } from "react"
-import { useTracker, useSubscribe } from 'meteor/react-meteor-data/suspense'
+import { Meteor } from 'meteor/meteor';
+import { useTracker, useSubscribe } from '@meteor-vite/react-meteor-data'
 import { TaskForm } from "./TaskForm"
 import { Button, Spinner } from "flowbite-react"
 import { TasksCollection } from "../db/TasksCollection";
@@ -18,7 +19,7 @@ const updateTask = (task: TaskType) => Meteor.call('tasks.update', task);
 const Tasks = () => {
     useSubscribe("tasks")
 
-    const user = useTracker("user", () => Meteor.userAsync())
+    const user = useTracker(() => Meteor.user())
 
     const [hideCompleted, setHideCompleted] = useState(false);
 
@@ -28,8 +29,8 @@ const Tasks = () => {
 
     const pendingOnlyFilter = { ...hideCompletedFilter, ...userFilter };
 
-    const { tasks, pendingTasksCount, isLoading } = useTracker<{ tasks: TaskType[], pendingTasksCount: number, isLoading: boolean }>("tasksByUser", async () => {
-        const noDataAvailable = { tasks: [], pendingTasksCount: 0 };
+    const { tasks, pendingTasksCount, isLoading } = useTracker<{ tasks: TaskType[], pendingTasksCount: number, isLoading: boolean }>(() => {
+        const noDataAvailable = { tasks: [], pendingTasksCount: 0, isLoading: false };
 
         if (!Meteor.user()) {
             return noDataAvailable;
@@ -41,15 +42,15 @@ const Tasks = () => {
             return { ...noDataAvailable, isLoading: true };
         }
 
-        const tasks = await TasksCollection.find(
+        const tasks = TasksCollection.find(
             hideCompleted ? pendingOnlyFilter : userFilter,
             {
                 sort: { createdAt: -1 },
-            }).fetchAsync()
+            }).fetch()
 
         const pendingTasksCount = TasksCollection.find(pendingOnlyFilter).count();
 
-        return { tasks, pendingTasksCount };
+        return { tasks, pendingTasksCount, isLoading: false };
     });
 
 

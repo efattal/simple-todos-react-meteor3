@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import '/imports/api';
+import './react-refresh';
 
 const SEED_USERNAME = 'meteorite';
 const SEED_PASSWORD = 'password';

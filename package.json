@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@babel/runtime": "7.24.7",
+    "@meteor-vite/react-meteor-data": "^1.0.3",
     "@types/react": "npm:types-react@rc",
     "@types/react-dom": "npm:types-react-dom@rc",
     "@vitejs/plugin-react": "4.3.1",
@@ -36,7 +37,7 @@
   },
   "meteor": {
     "mainModule": {
-      "client": "client/main.tsx",
+      "client": "client/main.js",
       "server": "server/main.ts"
     },
     "testModule": "tests/main.js"

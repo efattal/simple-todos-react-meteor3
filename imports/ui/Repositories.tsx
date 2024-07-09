@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react"
+import { Meteor } from 'meteor/meteor';
 import { Repository } from "/types/Repository"
 import { ListGroup, Spinner } from "flowbite-react"
 
 const Repositories = () => {
     const [repos, setRepos] = useState<Repository[]>()
+    
     useEffect(() => {
         Meteor.call("github.repos.list", (err, list) => {
             if (err) {

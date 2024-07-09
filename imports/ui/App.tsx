@@ -1,6 +1,7 @@
-import { Avatar, Card, DarkThemeToggle, Dropdown, Flowbite, Navbar, Spinner, Tabs } from "flowbite-react";
-import { useTracker } from 'meteor/react-meteor-data';
 import React, { useEffect, useState } from 'react';
+import { Meteor } from 'meteor/meteor';
+import { Avatar, Card, DarkThemeToggle, Dropdown, Flowbite, Navbar, Spinner, Tabs } from "flowbite-react"
+import { useTracker } from '@meteor-vite/react-meteor-data';
 import { MdLogout } from "react-icons/md";
 import { LoginForm } from './LoginForm';
 import Repositories from './Repositories';

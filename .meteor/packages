@@ -27,5 +27,4 @@ accounts-github@1.5.1-rc300.4
 efattal:accounts-twitter
 ostrio:base64
 fetch@0.1.5-rc300.4
-react-meteor-data@3.0.0-rc.0
 jorgenvatle:vite-bundler
